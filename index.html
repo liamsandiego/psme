@@ -10,19 +10,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
-            /* Jollibee-inspired palette, RED DOMINANT */
-            --primary-bg: #fff6e6; /* lightest yellow */
-            --secondary-bg: #ffe0b2; /* soft yellow */
-            --accent: #d72631; /* Jollibee red (dominant) */
-            --highlight: #ffd600; /* Jollibee yellow (accent) */
-            --text-primary: #a80000; /* deep red for text */
-            --text-secondary: #7c3f00; /* warm brown for secondary text */
-            --border: #d72631; /* red border for dominance */
-            /* Extra Jollibee colors for gradients and accents */
-            --dusty-rose: #d72631;
-            --terracotta: #ff9800;
-            --warm-taupe: #7c3f00;
-            --ivory: #fff6e6;
+            /* Jollibee-inspired palette, as authentic as possible */
+            --primary-bg: #fff6e6; /* Jollibee light yellow */
+            --secondary-bg: #fff0b3; /* Jollibee pale yellow */
+            --accent: #d72631; /* Jollibee red */
+            --highlight: #ffd600; /* Jollibee yellow */
+            --text-primary: #b71c1c; /* Jollibee deep red for text */
+            --text-secondary: #ff9800; /* Jollibee orange for secondary text */
+            --border: #d72631; /* Jollibee red border */
+            --jollibee-red: #d72631;
+            --jollibee-yellow: #ffd600;
+            --jollibee-brown: #7c3f00;
+            --jollibee-white: #fff6e6;
         }
 
         body {
@@ -38,10 +37,10 @@
         }
 
         .photo-frame {
-            background-color: #fff0f0;
-            border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(215, 38, 49, 0.13);
-            padding: 12px;
+            background: linear-gradient(135deg, #fff6e6 60%, #ffd600 90%, #d72631 100%);
+            border-radius: 18px;
+            box-shadow: 0 4px 18px rgba(215, 38, 49, 0.18);
+            padding: 13px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -49,7 +48,7 @@
             min-width: 320px;
             max-width: 100%;
             box-sizing: border-box;
-            border: 3px solid var(--accent);
+            border: 3.5px solid var(--accent);
         }
 
         .photo-frame:hover {
@@ -79,19 +78,20 @@
         }
 
         .divider {
-            height: 3px;
+            height: 4px;
             background: linear-gradient(90deg, var(--accent) 0%, var(--highlight) 30%, var(--accent) 100%);
-            opacity: 0.95;
-            border-radius: 2px;
+            opacity: 1;
+            border-radius: 3px;
+            box-shadow: 0 1px 6px #d7263122;
         }
 
         .quote-card {
-            background-color: #fff0f0;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 16px rgba(215, 38, 49, 0.13);
+            background: linear-gradient(120deg, #fff6e6 80%, #ffd600 100%);
+            border-radius: 18px;
+            padding: 2.2rem 2rem 2.2rem 2rem;
+            box-shadow: 0 4px 18px rgba(215, 38, 49, 0.13);
             position: relative;
-            border: 2.5px solid var(--accent);
+            border: 3px solid var(--accent);
         }
 
         .quote-card::before {
@@ -106,20 +106,21 @@
         }
 
         .btn {
-            background-color: var(--accent);
+            background: linear-gradient(90deg, var(--accent) 60%, var(--highlight) 100%);
             color: #fff;
             transition: all 0.3s ease;
-            border-radius: 8px;
-            font-weight: 700;
+            border-radius: 10px;
+            font-weight: 800;
             border: 2.5px solid var(--accent);
-            box-shadow: 0 2px 8px rgba(215, 38, 49, 0.10);
+            box-shadow: 0 2px 10px #d7263122;
+            letter-spacing: 0.04em;
         }
 
         .btn:hover {
-            background-color: var(--highlight);
+            background: linear-gradient(90deg, var(--highlight) 0%, var(--accent) 100%);
             color: var(--accent);
-            border-color: var(--accent);
-            transform: translateY(-2px) scale(1.04);
+            border-color: var(--highlight);
+            transform: translateY(-2px) scale(1.06);
         }
 
         .carousel-container {
@@ -139,15 +140,15 @@
         /* Tape effect for photos */
         .tape {
             position: absolute;
-            background: linear-gradient(90deg, var(--accent) 0%, var(--highlight) 40%, var(--accent) 100%);
-            box-shadow: 0 1px 6px rgba(215, 38, 49, 0.13);
+            background: linear-gradient(90deg, var(--accent) 0%, var(--highlight) 50%, var(--accent) 100%);
+            box-shadow: 0 1px 8px #d7263122;
             width: 40%;
-            height: 20px;
-            top: -5px;
+            height: 22px;
+            top: -7px;
             left: 50%;
             transform: translateX(-50%) rotate(-2deg);
             z-index: 1;
-            border-radius: 6px;
+            border-radius: 8px;
         }
 
         /* Masonry-like layout */
@@ -173,17 +174,18 @@
         .photo-frame img {
             width: 100%;
             height: auto;
-            border-radius: 12px;
+            border-radius: 14px;
             display: block;
             object-fit: cover;
-            border: 3px solid var(--accent);
+            border: 4px solid var(--accent);
             background: #fff6e6;
+            box-shadow: 0 2px 10px #d7263122;
         }
     </style>
 </head>
 <body>
     <!-- Hero/Invitation Card Section -->
-    <section class="relative w-full py-20 px-4 md:px-8 lg:px-16 flex flex-col items-center justify-center text-center bg-gradient-to-br from-[#d72631] via-[#ffd600] to-[#d72631] overflow-hidden mb-10" style="min-height: 420px;">
+    <section class="relative w-full py-20 px-4 md:px-8 lg:px-16 flex flex-col items-center justify-center text-center bg-gradient-to-br from-[#d72631] via-[#ffd600] to-[#fff6e6] overflow-hidden mb-10" style="min-height: 420px;">
         <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
             <svg width="100%" height="100%" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;z-index:0;">
                 <path fill="#F5E9DA" fill-opacity="0.7" d="M0,160L60,170.7C120,181,240,203,360,197.3C480,192,600,160,720,133.3C840,107,960,85,1080,101.3C1200,117,1320,171,1380,197.3L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
@@ -192,10 +194,10 @@
         <div class="relative z-10 max-w-2xl w-full invitation-card-layout animate-invite-card">
             <div class="invitation-card-inner">
                 <div class="flex flex-col items-center gap-2 mb-6">
-                    <span class="block text-lg md:text-xl tracking-widest uppercase font-semibold mb-2" style="color: var(--highlight); letter-spacing:0.2em; text-shadow: 1px 1px 0 #d72631;">You're Invited</span>
-                    <h1 class="text-5xl md:text-6xl font-extrabold mb-1 tracking-tight" style="color: var(--accent); font-family: 'Playfair Display', serif; text-shadow: 2px 2px 0 #ffd600, 0 2px 8px #d7263144;">Farewell, Batch 2025</h1>
+                    <span class="block text-lg md:text-xl tracking-widest uppercase font-semibold mb-2" style="color: var(--highlight); letter-spacing:0.2em; text-shadow: 2px 2px 0 #d72631, 0 2px 8px #ffd60044;">You're Invited</span>
+                    <h1 class="text-5xl md:text-6xl font-extrabold mb-1 tracking-tight" style="color: var(--accent); font-family: 'Playfair Display', serif; text-shadow: 3px 3px 0 #ffd600, 0 2px 12px #d7263144;">Farewell, Batch 2025</h1>
                     <div class="w-24 divider mx-auto mb-2"></div>
-                    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-2 italic" style="color: var(--accent);">A journey of memories shared and cherished.</p>
+                    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-2 italic" style="color: var(--highlight); text-shadow: 1px 1px 0 #d72631;">A journey of memories shared and cherished.</p>
                     <div class="max-w-2xl mx-auto mb-4">
                         <p class="text-base md:text-lg leading-relaxed" style="color: var(--text-secondary);">
                             <strong style="color: var(--accent);">Our dear seniors,</strong><br>
@@ -506,13 +508,6 @@
                         </div>
                     </div>
                     
-                    <!-- Quote 3 -->
-                    <div class="carousel-item px-4">
-                        <div class="quote-card">
-                            <p class="text-lg italic mb-4">"What we've shared these past years isn't just knowledge, but a community. Remember that wherever you go next, you'll always have a home here with us."</p>
-                            <p class="font-semibold text-right">— Class President</p>
-                        </div>
-                    </div>
                 </div>
                 
                 <!-- Carousel Controls -->
@@ -533,7 +528,7 @@
     </main>
     
     <!-- Footer Section -->
-    <footer class="bg-[#fff6e6] py-16 px-4" style="border-top: 6px solid var(--accent); background: linear-gradient(90deg, #fff6e6 0%, #ffd600 10%, #d72631 80%, #d72631 100%);">
+    <footer class="bg-[#fff6e6] py-16 px-4" style="border-top: 7px solid var(--accent); background: linear-gradient(90deg, #d72631 0%, #ffd600 30%, #fff6e6 100%);">
         <div class="max-w-4xl mx-auto text-center">
             <h3 class="text-2xl md:text-3xl font-semibold mb-4" style="color: var(--accent);">Thank you for being part of the journey.</h3>
             <p class="mb-8" style="color: var(--text-secondary);">May the memories we've created together continue to inspire your future endeavors.</p>
